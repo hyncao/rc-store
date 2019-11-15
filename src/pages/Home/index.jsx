@@ -4,7 +4,6 @@ import { connect } from '../../rc-store';
 function Home({ homeStore }) {
   const add = () => {
     homeStore.count++;
-    console.log(homeStore)
   }
 
   return (
