@@ -1,5 +1,6 @@
 const store = {
-  count: 0,
+  list: [],
+  value: '',
 }
 
 export default store;

@@ -1,31 +1,33 @@
 {
-  "name": "temp",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0"
+  "name": "rc-store",
+  "version": "0.0.2",
+  "description": "A mini store for React component.",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hyncao/rc-store.git"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "babel ./src/index.js -o ./src/index.min.js --presets=@babel/preset-react"
   },
-  "eslintConfig": {
-    "extends": "react-app"
+  "keywords": [
+    "react",
+    "store",
+    "redux"
+  ],
+  "author": "hyncao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hyncao/rc-store/issues"
   },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "homepage": "https://github.com/hyncao/rc-store",
+  "dependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/preset-react": "^7.7.0",
+    "react": "^16.12.0"
+  },
+  "peerDependencies": {
+    "react": ">=16.3.0"
   }
 }

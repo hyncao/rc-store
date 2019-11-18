@@ -1,0 +1,36 @@
+.content {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+
+.list div {
+  height: 30px;
+  line-height: 30px;
+  font-size: 16px;
+}
+
+.ipt {
+  appearance: none;
+  -webkit-appearance: none;
+  height: 30px;
+  line-height: 30px;
+  text-indent: 6px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.btn {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  text-align: center;
+  background-color: #c14d70;
+  color: #fff;
+  border: 0;
+  outline: 0;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  cursor: pointer;
+}
