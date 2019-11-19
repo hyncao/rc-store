@@ -1,6 +1,6 @@
 {
   "name": "rc-store",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "A mini store for React component.",
   "main": "./src/index.js",
   "repository": {
@@ -20,7 +20,7 @@
   "bugs": {
     "url": "https://github.com/hyncao/rc-store/issues"
   },
-  "homepage": "https://github.com/hyncao/rc-store",
+  "homepage": "https://github.com/hyncao/rc-store#readme",
   "dependencies": {
     "@babel/cli": "^7.7.0",
     "@babel/core": "^7.7.2",
