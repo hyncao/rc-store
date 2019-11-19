@@ -8,7 +8,7 @@
     "url": "git+https://github.com/hyncao/rc-store.git"
   },
   "scripts": {
-    "build": "babel ./src/index.js -o ./src/index.min.js --presets=@babel/preset-react"
+    "build": "babel ./src/rc-store.js -o ./src/index.js"
   },
   "keywords": [
     "react",
