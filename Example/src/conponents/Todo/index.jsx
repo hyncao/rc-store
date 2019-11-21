@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'rc-store';
+import { connect } from '../../rc-store';
 import styles from './index.module.css';
 
 class Todo extends React.Component {

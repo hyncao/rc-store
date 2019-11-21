@@ -1,76 +1,74 @@
 import React from 'react';
 
-const context = React.createContext();
-const Consumer = context.Consumer;
+let connect = () => () => { };
+class WarpProvider extends React.Component {
+  constructor(props) {
+    super(props);
+    const { children, ...rest } = this.props;
+    this.state = {
+      ...rest
+    }
+    this.connect = this.connect.bind(this);
+    this.dispatch = this.dispatch.bind(this);
+    export const connect = this.connect;
+  }
 
-export const Provider = ({ children, ...rest }) => {
-  return (
-    <context.Provider value={rest}>
-      {children}
-    </context.Provider>
-  )
-};
-
-export const connect = (...name) => Component => props => {
-  class Connect extends React.Component {
-    constructor() {
-      super();
-      this.state = {
-        data: null,
+  connect(...name) {
+    return (NextComponent) => props => {
+      const data = {
+        ...props,
+        dispatch: this.dispatch,
       };
-      this.dispatch = this.dispatch.bind(this);
-    }
-
-    componentDidMount() {
-      const { context } = this.props;
-      const injectObj = {};
       name.forEach((i) => {
-        injectObj[i] = context[i];
+        data[i] = this.state[i];
       })
-      this.setState({
-        data: { ...props, ...injectObj, dispatch: this.dispatch },
-      })
-    }
-
-    dispatch(store) {
-      const { data } = this.state;
-      const keys = Object.keys(store);
-      let error;
-      if (keys.every((i) => {
-        const res = i in data;
-        if (!res) {
-          error = `Connect did not register "${i}", please check dispatch or connect in "${Component.name}" Component`;
-        }
-        return res;
-      })) {
-        let newData = data;
-        keys.forEach((i) => {
-          newData = {
-            ...newData,
-            [i]: {
-              ...newData[i],
-              ...store[i]
-            },
-          }
-        });
-        this.setState({ data: newData });
-      } else {
-        throw new Error(error);
-      }
-    }
-
-    render() {
-      const { data } = this.state;
-      if (data) {
-        return <Component {...data} />;
-      }
-      return null;
+      return (
+        <>
+          <NextComponent {...data} />
+        </>
+      )
     }
   }
 
-  return (
-    <Consumer>
-      {context => <Connect context={context} />}
-    </Consumer>
-  );
+  dispatch(store) {
+    const { state } = this;
+    const keys = Object.keys(store);
+    let error;
+    if (keys.every((i) => {
+      const res = i in state;
+      if (!res) {
+        error = `Connect did not register "${i}", please check dispatch or connect`;
+      }
+      return res;
+    })) {
+      let newState = state;
+      keys.forEach((i) => {
+        newState = {
+          ...newState,
+          [i]: {
+            ...newState[i],
+            ...store[i]
+          },
+        }
+      });
+      this.setState({ ...newState });
+    } else {
+      throw new Error(error);
+    }
+  }
+
+  render() {
+    const { children } = this.props;
+    return (
+      <>
+        {children}
+      </>
+    )
+  }
 };
+
+const Provider = props => {
+  debugger
+  new WarpProvider(props);
+}
+export { Provider };

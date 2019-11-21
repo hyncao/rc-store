@@ -1,14 +1,18 @@
 import React from 'react';
-import { connect } from 'rc-store';
+import { connect } from '../../rc-store';
 import Todo from '../../conponents/Todo';
 
-function Home({ homeStore }) {
-  return (
-    <div>
-      <h1>{homeStore.slogan}</h1>
-      <Todo />
-    </div>
-  )
+class Home extends React.Component {
+  render() {
+    const { homeStore, todoStore } = this.props;
+    return (
+      <div>
+        <h1>{homeStore.slogan}</h1>
+        {todoStore.list.length}
+        <Todo />
+      </div>
+    )
+  }
 }
 
-export default connect('homeStore')(Home);
+export default connect('homeStore', 'todoStore')(Home);
