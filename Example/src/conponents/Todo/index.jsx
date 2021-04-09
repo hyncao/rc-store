@@ -11,7 +11,7 @@ class Todo extends React.Component {
     this.clear = this.clear.bind(this);
   }
 
-  add() {
+  async add() {
     const { todoStore, dispatch } = this.props;
     const { value } = todoStore;
     if (!value) return;
@@ -21,12 +21,13 @@ class Todo extends React.Component {
       text: value,
       done: false,
     })
-    dispatch({
+    const n = await dispatch({
       todoStore: {
         list,
         value: '',
       }
-    })
+    }).catch(e => console.log(e))
+    console.log(n)
   }
 
   handleDone(id) {

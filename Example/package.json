@@ -2,9 +2,9 @@
   "name": "todo",
   "version": "0.0.1",
   "dependencies": {
-    "rc-store": "0.0.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "rc-store": "0.0.6",
+    "react": "^16.14.0",
+    "react-dom": "^16.14.0",
     "react-scripts": "3.2.0"
   },
   "scripts": {

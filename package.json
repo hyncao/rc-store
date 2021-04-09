@@ -1,6 +1,6 @@
 {
   "name": "rc-store",
-  "version": "0.0.4",
+  "version": "0.0.6",
   "description": "A mini store for React component.",
   "main": "./src/index.js",
   "repository": {

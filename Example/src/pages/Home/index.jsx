@@ -3,6 +3,10 @@ import { connect } from '../../rc-store';
 import Todo from '../../conponents/Todo';
 
 class Home extends React.Component {
+  componentDidMount() {
+    console.log('home didmont');
+  }
+
   render() {
     const { homeStore, todoStore } = this.props;
     return (
@@ -11,7 +15,7 @@ class Home extends React.Component {
         {todoStore.list.length}
         <Todo />
       </div>
-    )
+    );
   }
 }
 
